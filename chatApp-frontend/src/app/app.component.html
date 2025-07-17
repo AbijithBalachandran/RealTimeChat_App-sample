@@ -1,0 +1,26 @@
+
+@if(!isJoined) {
+<div>
+  <input type="text" placeholder="Enter Your Name" required [(ngModel)]="name">
+  <button (click)="join()">Join</button>
+</div>
+} @else {
+
+  <div>
+    <h2>{{name}}</h2>
+    <ul>
+      @for (item of messages; track item)  {
+        <li>{{item.name}} : {{item.message}}</li>
+      }
+    </ul>
+  </div>
+
+<div>
+  <input type="text" placeholder="Enter Your Message" [(ngModel)]="message">
+  <button (click)="send()">Send</button>
+</div>
+}
+
+
+
+<router-outlet />
